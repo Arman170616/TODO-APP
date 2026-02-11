@@ -13,6 +13,10 @@ todo_app/ios/Pods/
 todo_app/ios/Flutter/ephemeral/
 todo_app/.metadata
 
+# Next.js
+nextjs-frontend/node_modules/
+nextjs-frontend/.next/
+
 # IDE
 .idea/
 .vscode/

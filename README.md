@@ -1,18 +1,21 @@
 # TODO-APP
 
-A full-stack Todo application with a **Django REST API** backend and two frontends: **Flutter** (mobile) and **Web** (HTML/JS).
+A full-stack Todo application with a **Django REST API** backend and three frontends: **Flutter** (mobile), **Next.js** (React + Tailwind), and a simple **HTML/JS** web page.
 
 ## Architecture
 
 ```
-┌─────────────────┐
-│  Flutter (phone) │──── REST API ──┐
-└─────────────────┘                 │
-                                    ▼
-┌─────────────────┐          ┌────────────┐
-│  Web (browser)   │── REST ──>│   Django   │
-└─────────────────┘          │  (SQLite)  │
-                              └────────────┘
+┌──────────────────────┐
+│   Flutter (mobile)    │──── REST API ──┐
+└──────────────────────┘                 │
+                                         ▼
+┌──────────────────────┐          ┌────────────┐
+│   Next.js (React)     │── REST ──>│   Django   │
+└──────────────────────┘          │  (SQLite)  │
+                                   └────────────┘
+┌──────────────────────┐                 ▲
+│   HTML/JS (simple)    │──── REST ──────┘
+└──────────────────────┘
 ```
 
 ## Tech Stack
@@ -22,7 +25,8 @@ A full-stack Todo application with a **Django REST API** backend and two fronten
 | Backend | Django 5 + Django REST Framework |
 | Database | SQLite |
 | Mobile Frontend | Flutter (Dart) |
-| Web Frontend | HTML, CSS, JavaScript |
+| Web Frontend (Modern) | Next.js + React + Tailwind CSS |
+| Web Frontend (Simple) | HTML, CSS, JavaScript |
 | Communication | REST API (JSON) |
 
 ## Project Structure
@@ -35,7 +39,9 @@ TODO-APP/
 │   └── db.sqlite3        # SQLite database
 ├── todo_app/             # Flutter mobile app
 │   └── lib/main.dart     # App source code
-└── frontend/             # Web frontend
+├── nextjs-frontend/      # Next.js + React + Tailwind CSS
+│   └── src/app/page.tsx  # Main page component
+└── frontend/             # Simple HTML/JS web frontend
     └── index.html        # Single-file web app
 ```
 
@@ -45,7 +51,9 @@ TODO-APP/
 - Add new todo
 - Mark todo as completed
 - Delete todo
-- Real-time sync between mobile and web (shared backend)
+- Filter by All / Active / Completed (Next.js)
+- Progress bar (Next.js)
+- Real-time sync across all frontends (shared backend)
 
 ## Setup & Run
 
@@ -71,7 +79,17 @@ flutter run
 > - Android Emulator: `http://10.0.2.2:8000/api/todos/`
 > - Real phone (same WiFi): `http://YOUR_PC_IP:8000/api/todos/`
 
-### 3. Web Frontend
+### 3. Next.js Frontend (Modern Web)
+
+```bash
+cd nextjs-frontend
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000` in your browser.
+
+### 4. Simple Web Frontend
 
 Open `frontend/index.html` in your browser while Django is running.
 
