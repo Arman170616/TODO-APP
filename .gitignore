@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.sqlite3
+
+# Flutter
+todo_app/.dart_tool/
+todo_app/.flutter-plugins
+todo_app/.flutter-plugins-dependencies
+todo_app/build/
+todo_app/.packages
+todo_app/ios/Pods/
+todo_app/ios/Flutter/ephemeral/
+todo_app/.metadata
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
