@@ -55,6 +55,26 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+# ---- REST Framework: use JWT authentication ----
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+
+# ---- JWT settings ----
+from datetime import timedelta
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=7),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
+}
+
+# ---- Google OAuth Client IDs ----
+GOOGLE_CLIENT_IDS = [
+    '140560791771-iojtfce8196hq7duhr7avos5gjpt6idb.apps.googleusercontent.com',  # Android
+    '140560791771-j78sejqcc5f3roeq0te6cput1fi6c062.apps.googleusercontent.com',  # Web
+]
+
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
